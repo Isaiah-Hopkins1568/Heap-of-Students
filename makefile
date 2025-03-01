@@ -1,5 +1,11 @@
 studentHeap.exe: main.o address.o date.o
-	g++ -o studentHeap.exe main.o address.o date.o
+	g++ -o studentHeap.exe main.o address.o date.o 
+
+studentHeasearchp.exe: main.o address.o date.o student.o
+	g++ -o studentHeasearchp.exe main.o address.o date.o student.o
+
+student.o: student.cpp student.h
+	g++ -c student.cpp
 
 address.o: address.cpp address.h
 	g++ -c address.cpp
