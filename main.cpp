@@ -58,13 +58,13 @@ void testAddress() {
     Address a;
     a.init("123 W Main St", "Muncie", "IN", "47303");
     a.printAddress();
-} // end testAddress
+} 
 
 void testDate() {
     Date d;
     d.init("01/27/1997");
     d.printDate();
-} // end testDate
+} 
 
 void printAllStudentNames(const std::vector<Student>& students) {
     std::cout << "All student names:" << std::endl;
@@ -84,7 +84,7 @@ void printAllStudentData(const std::vector<Student>& students) {
 void findStudent(const std::vector<Student>& students) {
     std::string searchName;
     std::cout << "Enter the student's name (Last, First): ";
-    std::cin.ignore();  // Clear the input buffer before taking the name
+    std::cin.ignore(); 
     std::getline(std::cin, searchName);
     
     bool found = false;
@@ -101,19 +101,19 @@ void findStudent(const std::vector<Student>& students) {
     }
 }
 
-// New function to load students from a CSV file
+
 void loadStudentsFromCSV(const std::string& filename, std::vector<Student>& students) {
     std::ifstream file(filename);
     std::string line;
     
-    // Skip the header line if it exists
+    
     std::getline(file, line);
 
     while (std::getline(file, line)) {
         std::stringstream ss(line);
         std::string firstName, lastName, street, city, state, zip, birthDateStr, gradDateStr, scoreStr;
         
-        // Parse each field (comma-separated)
+      
         std::getline(ss, firstName, ',');
         std::getline(ss, lastName, ',');
         std::getline(ss, street, ',');
@@ -124,13 +124,12 @@ void loadStudentsFromCSV(const std::string& filename, std::vector<Student>& stud
         std::getline(ss, gradDateStr, ',');
         std::getline(ss, scoreStr, ',');
         
-        // Initialize the Student object with parsed data
+        
         std::string studentData = firstName + "," + lastName + "," + street + "," + city + "," + state + "," + zip + "," + birthDateStr + "," + gradDateStr + "," + scoreStr;
         
         Student student;
-        student.init(studentData); // Assuming the init function can parse this entire data string.
+        student.init(studentData);
         
-        // Add the student to the vector
         students.push_back(student);
     }
     std::cout << "Loaded " << students.size() << " students from " << filename << std::endl;
